@@ -1,0 +1,3 @@
+BOT_TOKEN = "7794532017:AAGFjuM1idykju5Rj7ZyNvLjTrwQRT28i7E"
+CHANNEL_USERNAME = "IRPF_Official"  # بدون @
+ADMIN_USERNAME = "IPF_Spt"  # بدون @
