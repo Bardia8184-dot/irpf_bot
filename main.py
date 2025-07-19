@@ -167,3 +167,21 @@ def main():
 
 if __name__ == '__main__':
     main()
+# ===== START: keep Render Web Service alive with fake Flask app =====
+from flask import Flask
+import threading
+import os
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Bot is running!"
+
+def run_flask():
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+
+# Run Flask server in a background thread
+threading.Thread(target=run_flask).start()
+# ===== END: keep Render Web Service alive =====
