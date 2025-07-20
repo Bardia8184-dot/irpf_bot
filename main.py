@@ -4,7 +4,7 @@ import config
 
 BOT_TOKEN = config.BOT_TOKEN
 CHANNEL_USERNAME = config.CHANNEL_USERNAME
-ADMIN_USERNAME = config.ADMIN_USERNAME
+ADMIN_ID = 7072118286
 
 user_states = {}
 
@@ -27,7 +27,10 @@ def main_menu_keyboard():
     ])
 
 def back_button():
-    return InlineKeyboardMarkup([[InlineKeyboardButton("⬅️ برگشت", callback_data="back")]])
+    return InlineKeyboardMarkup([
+        [InlineKeyboardButton("⬅️ برگشت", callback_data="back")],
+    [InlineKeyboardButton("❌ لغو عملیات", callback_data="cancel")]
+    ])
 
 def start(update: Update, context: CallbackContext):
     user = update.effective_user
@@ -54,7 +57,7 @@ START_MSG_VERIFIED = """✅ عضویت شما با موفقیت تأیید شد!
 
 WELCOME_PRIVATE = """🎉 عضویت شما در کانال رسمی کلن IR.P.F با موفقیت ثبت شد!
 فرزند پارسی، به جمع ما خوش اومدی 🌟
-📌 لطفاً همین حالا وارد ربات شو و بخش «📜 قوانین کلن» رو مطالعه کن.
+📌  لطفاً همین حالا  /start رو بزن و وارد ربات شو و بخش «📜 قوانین کلن» رو مطالعه کن.
 """
 
 START_MSG_MAIN = """🎮 به ربات رسمی کلن  IR.P.F خوش اومدی!
