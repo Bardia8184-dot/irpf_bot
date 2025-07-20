@@ -95,7 +95,7 @@ def button(update: Update, context: CallbackContext):
         query.edit_message_text(text=START_MSG_MAIN, reply_markup=main_menu_keyboard())
 
     elif data == "ranking":
-        msg = "🏆در پایان این ماه اعلام خواهد شد."
+        msg = """🏆در پایان این ماه اعلام خواهد شد."""
         query.edit_message_text(text=msg, reply_markup=back_button())
 
     elif data == "test":
@@ -108,7 +108,7 @@ def button(update: Update, context: CallbackContext):
              InlineKeyboardButton("❌ شرکت نمی‌کنم", callback_data="war_no")],
             [InlineKeyboardButton("⬅️ برگشت", callback_data="back")]
         ])
-        msg = "📆 درحال حاضر کلن واری نداریم."
+        msg = """📆 درحال حاضر کلن واری نداریم."""
         query.edit_message_text(text=msg, reply_markup=keyboard)
 
     elif data == "war_yes":
@@ -116,7 +116,7 @@ def button(update: Update, context: CallbackContext):
         query.edit_message_text(text="✅ ثبت شد: شما در وار شرکت می‌کنید.", reply_markup=back_button())
 
     elif data == "gallery":
-        msg = "بزودی در اپدیت بعدی ربات فعال میشود."
+        msg = """بزودی در اپدیت بعدی ربات فعال میشود."""
         query.edit_message_text(text=msg, reply_markup=back_button())
 
     elif data == "support":
@@ -191,8 +191,8 @@ def button(update: Update, context: CallbackContext):
              InlineKeyboardButton("چهارشنبه", callback_data="train_wed")],
             [InlineKeyboardButton("⬅️ برگشت", callback_data="back")]
         ])
-        msg = "🧗🏻‍♂️ تمرین تیمی این هفته:
-شنبه ها ساعت ۱۵تا۱۶، یکشنبه ها ساعت ۲۲تا۲۳، سه‌شنبه ها ساعت ۱۵تا۱۶ و چهارشنبه ها ساعت۲۲تا۲۳."
+        msg = """🧗🏻‍♂️ تمرین تیمی این هفته:
+شنبه ها ساعت ۱۵تا۱۶، یکشنبه ها ساعت ۲۲تا۲۳، سه‌شنبه ها ساعت ۱۵تا۱۶ و چهارشنبه ها ساعت۲۲تا۲۳."""
         query.edit_message_text(text=msg, reply_markup=keyboard)
 
     elif data.startswith("train_"):
