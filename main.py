@@ -99,7 +99,7 @@ def button(update: Update, context: CallbackContext):
 
     elif data == "test":
         query.edit_message_text(text="درخواست شما ثبت شد.", reply_markup=back_button())
-        context.bot.send_message(chat_id=f"@{ADMIN_USERNAME}", text=f"@{user.username} درخواست تست کلن داد.")
+        context.bot.send_message(chat_id=ADMIN_ID, text=f"@{user.username} درخواست تست کلن داد.")
 
     elif data == "war":
         keyboard = InlineKeyboardMarkup([
@@ -111,7 +111,7 @@ def button(update: Update, context: CallbackContext):
         query.edit_message_text(text=msg, reply_markup=keyboard)
 
     elif data == "war_yes":
-        context.bot.send_message(chat_id=f"@{ADMIN_USERNAME}", text=f"@{user.username} شرکت در کلن وار را تأیید کرد.")
+        context.bot.send_message(chat_id=ADMIN_ID, text=f"@{user.username} شرکت در کلن وار را تأیید کرد.")
         query.edit_message_text(text="✅ ثبت شد: شما در وار شرکت می‌کنید.", reply_markup=back_button())
 
     elif data == "gallery":
@@ -196,7 +196,7 @@ def button(update: Update, context: CallbackContext):
     elif data.startswith("train_"):
         day = data.split("_")[1]
         days = {"sat": "شنبه", "sun": "یکشنبه", "tue": "سه‌شنبه", "wed": "چهارشنبه"}
-        context.bot.send_message(chat_id=f"@{ADMIN_USERNAME}", text=f"@{user.username} تمرین روز {days[day]} را انتخاب کرد.")
+        context.bot.send_message(chat_id=ADMIN_ID, text=f"@{user.username} تمرین روز {days[day]} را انتخاب کرد.")
         query.edit_message_text(text=f"✅ ثبت شد: تمرین روز {days[day]}.", reply_markup=back_button())
 
     elif data == "help":
@@ -225,7 +225,7 @@ def handle_message(update: Update, context: CallbackContext):
     user = update.effective_user
     if user.id in user_states and user_states[user.id] == "anonymous":
         msg = update.message.text
-        context.bot.send_message(chat_id=f"@{ADMIN_USERNAME}", text=f"پیام ناشناس از @{user.username}: {msg}")
+        context.bot.send_message(chat_id=ADMIN_ID, text=f"پیام ناشناس از @{user.username}: {msg}")
         update.message.reply_text("✅ پیام شما ناشناس ثبت شد.")
         user_states.pop(user.id, None)
 
