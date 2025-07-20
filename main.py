@@ -5,6 +5,7 @@ import config
 BOT_TOKEN = config.BOT_TOKEN
 CHANNEL_USERNAME = config.CHANNEL_USERNAME
 ADMIN_ID = 7072118286
+ADMIN_USERNAME = "IPF_Spt"
 
 user_states = {}
 
