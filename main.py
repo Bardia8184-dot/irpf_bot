@@ -197,7 +197,7 @@ def button(update: Update, context: CallbackContext):
         query.edit_message_text(text=f"✅ ثبت شد: تمرین روز {days[day]}.", reply_markup=back_button())
 
     elif data == "help":
-        msg = "راهنما:
+        msg = """راهنما:
 ❓ راهنمای استفاده از ربات و قوانین کلی
 
 🔹 چطور رتبه خودمو ببینم؟
@@ -211,7 +211,7 @@ def button(update: Update, context: CallbackContext):
 
 🔹چطور وارد کلن بشم؟
 🔸درخواست تست کلن بده تا راهنماییت کنیم
-📌 برای سوالات بیشتر، به پشتیبانی پیام بده."
+📌 برای سوالات بیشتر، به پشتیبانی پیام بده."""
         query.edit_message_text(text=msg, reply_markup=back_button())
 
     elif data == "anonymous":
