@@ -240,9 +240,6 @@ def main():
     updater.start_polling()
     updater.idle()
 
-if __name__ == '__main__':
-    main()
-# ===== START: keep Render Web Service alive with fake Flask app =====
 from flask import Flask
 import threading
 import os
@@ -257,6 +254,16 @@ def run_flask():
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
 
-# Run Flask server in a background thread
-threading.Thread(target=run_flask).start()
-# ===== END: keep Render Web Service alive =====
+def start_bot():
+    updater = Updater(BOT_TOKEN, use_context=True)
+    dp = updater.dispatcher
+    # -- این سه خط پایین رو قبلاً داشتی، فقط همینجا قرار بگیرند --
+    dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(CallbackQueryHandler(button))
+    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == '__main__':
+    threading.Thread(target=start_bot).start()    # ربات در تِرد جدا
+    run_flask()                                   # Flask در پروسه اصلی
